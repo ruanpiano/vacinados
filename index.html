@@ -1,0 +1,37 @@
+<html>
+<head>    
+    <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header class="sticky">
+        <a href="#" class="logo">Vacina Covid19 - Brasil</a>        
+    </header>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-lg-6">
+                <canvas id="totalVacinas"></canvas>
+            </div>  
+            <div class="col-sm-12 col-lg-6">
+                <canvas id="vacinasPorEstado"></canvas>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    <footer class="sticky">
+        <a href="https://github.com/wcota/covid19br" class="button">Fonte de Dados</a>
+        <a href="https://github.com/ruanpiano/vacinados" class="button">Código Fonte</a>
+    </footer>
+    
+</body>
+<script src="js/main.js"></script>
+
+</html>
