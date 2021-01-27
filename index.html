@@ -1,14 +1,14 @@
 <html>
 <head>    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:description" content="A ideia deste projeto é criar gráficos de vacinação da Covid19.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/ruanpiano/vacinados/main/preview.jpg">
+    
     <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css">
     <link rel="stylesheet" href="css/main.css">
     
     <script src="https://d3js.org/d3.v6.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title> Covid19 - Gráficos de Vacinação </title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>    
 </head>
 <body>
     <header class="sticky">
@@ -18,10 +18,10 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-lg-6">
-                <canvas id="totalVacinas"></canvas>
+                <canvas id="totalVacinas" height="250%"></canvas>
             </div>  
             <div class="col-sm-12 col-lg-6">
-                <canvas id="vacinasPorEstado"></canvas>
+                <canvas id="vacinasPorEstado" height="250%"></canvas>
             </div>
         </div>
     </div>
