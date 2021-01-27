@@ -5,9 +5,7 @@ function makeChart(data) {
     var generalData = data.map(function(d) {return [d.date, d.vaccinated, d.state];});    
     var usefulData = [];
     var stateData = [];    
-    var latestData = generalData[generalData.length-1][0];
-    
-    console.log(latestData);
+    var latestData = generalData[generalData.length-1][0];    
     
     generalData.forEach(function(row, i) {
         if ((parseInt(row[1]) > 0) && (row[1] != "")) 
@@ -28,18 +26,15 @@ function makeChart(data) {
         } 
     });    
 
-    console.log(stateData.sort(function (a, b) {
+    stateData.sort(function (a, b) {
         if (a[1] > b[1]) {            
           return -1;
         }
         if (a[1] < b[1]) {
           return 1;
-        }
-        // a must be equal to b
+        }        
         return 0;
-      }));
-
-    //console.log(stateData)
+      });    
     
     var totalVacinas = new Chart(document.getElementById('totalVacinas').getContext('2d'), {
         type: 'line',    
