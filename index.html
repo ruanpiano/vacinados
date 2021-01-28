@@ -15,20 +15,25 @@
         <a href="#" class="logo">Vacina Covid19 - Brasil</a>        
     </header>
     
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-lg-6">
-                <canvas id="totalVacinas" height="250%"></canvas>
-            </div>  
-            <div class="col-sm-12 col-lg-6">
-                <canvas id="vacinasPorEstado" height="250%"></canvas>
-            </div>
+    <div class="collapse">
+        <input type="radio" id="accordion-section1" checked aria-hidden="true" name="accordion">
+        <label for="accordion-section1" aria-hidden="true"><span class="icon-info"></span> Total de pessoas vacinadas no Brasil</label>
+        <div>
+            <canvas id="totalVacinas"></canvas>
+        </div>
+        <input type="radio" id="accordion-section2" aria-hidden="true" name="accordion">
+        <label for="accordion-section2" aria-hidden="true"><span class="icon-info"></span> Pessoas vacinadas por cada estado</label>
+        <div>            
+            <canvas id="vacinasPorEstado"></canvas>
+        </div>
+        <input type="radio" id="accordion-section3" aria-hidden="true" name="accordion">
+        <label for="accordion-section3" aria-hidden="true"><span class="icon-info"></span> Informações diárias</label>
+        <div>
+            <div class="card"><p class="title">Últimas 24 horas</p><p id="24horas"></p></div>
         </div>
     </div>
     
-    
-    
-    <footer class="sticky">
+    <footer id="footer">
         <a href="https://github.com/wcota/covid19br" class="button">Fonte de Dados</a>
         <a href="https://github.com/ruanpiano/vacinados" class="button">Código Fonte</a>
     </footer>
