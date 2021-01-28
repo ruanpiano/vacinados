@@ -2,6 +2,11 @@ d3.csv("https://raw.githubusercontent.com/wcota/covid19br/master/cases-brazil-st
 .then(makeChart);
 
 function makeChart(data) {
+    if (window.innerHeight <= 800 || window.devicePixelRatio>=2) {
+        var altura = window.innerHeight - window.innerHeight*0.3;
+        document.getElementById('vacinasPorEstado').height = altura;
+        document.getElementById('totalVacinas').height = altura;
+    }
     var generalData = data.map(function(d) {return [d.date, d.vaccinated, d.state];});    
     var usefulData = [];
     var stateData = [];    
@@ -10,7 +15,7 @@ function makeChart(data) {
     generalData.forEach(function(row, i) {
         if ((parseInt(row[1]) > 0) && (row[1] != "")) 
         {
-            row[1] = parseInt(row[1])
+            row[1] = parseInt(row[1]);
             if (row[2] == "TOTAL")
             {            
                 var dataVar = new Date(row[0]);
@@ -26,6 +31,16 @@ function makeChart(data) {
         } 
     });    
 
+    var datasUnicas = usefulData.map(function(d) {return d[0];});
+
+    var dadosVacinas = usefulData.map(function(d) {return d[1];});
+
+    var ultimas24Horas = dadosVacinas[dadosVacinas.length-1]-dadosVacinas[dadosVacinas.length-2];
+
+    document.getElementById('24horas').innerText = "+" + ultimas24Horas + " pessoas vacinadas.";
+
+    
+
     stateData.sort(function (a, b) {
         if (a[1] > b[1]) {            
           return -1;
@@ -39,16 +54,19 @@ function makeChart(data) {
     var totalVacinas = new Chart(document.getElementById('totalVacinas').getContext('2d'), {
         type: 'line',    
         data: {
-            labels: usefulData.map(function(d) {return d[0];}),
+            labels: datasUnicas,
             datasets: [
                 {
                     label: "Quantidade de pessoas vacinadas no país",
                     backgroundColor: "#0000FF55",
-                    data: usefulData.map(function(d) {return d[1];}),
+                    data: dadosVacinas,
                 }
             ],
         },
-        options: {
+        options: {         
+            legend: {
+                display: false
+            },
             scales: {
                 yAxes: [{
                     ticks: {
@@ -62,7 +80,7 @@ function makeChart(data) {
         }
     });
 
-    var totalVacinas = new Chart(document.getElementById('vacinasPorEstado').getContext('2d'), {
+    var vacinasPorEstado = new Chart(document.getElementById('vacinasPorEstado').getContext('2d'), {
         type: 'horizontalBar',    
         data: {
             labels: stateData.map(function(d) {return d[2];}),
@@ -74,7 +92,10 @@ function makeChart(data) {
                 }
             ],
         },      
-        options: {
+        options: {       
+            legend: {
+                display: false
+            },     
             scales: {
                 xAxes: [{
                     ticks: {
